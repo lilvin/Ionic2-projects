@@ -1,20 +1,23 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
+
+
 import { StatusBar } from 'ionic-native';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganisationsPage } from '../pages/organisations/organisations';
+import {UserDetailsPage} from "../pages/user-details/UserDetailsPage";
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
- @ViewChild(Nav) nav: Nav;
-
-  // make UsersPage the root (or first) page
+  @ViewChild(Nav) nav: Nav;
+// make UsersPage the root (or first) page
   rootPage: any = UsersPage;
   pages: Array<{title: string, component: any}>;
 
@@ -25,17 +28,18 @@ export class MyApp {
     this.pages = [
       { title: 'Users', component: UsersPage },
       { title: 'Repos', component: ReposPage },
-      { title: 'Organisations', component: OrganisationsPage },      
+      { title: 'Organisations', component: OrganisationsPage },
+      {title :'user-details',component:UserDetailsPage},
     ];
   }
 
-    initializeApp() {
+  initializeApp() {
     this.platform.ready().then(() => {
-    // Okay, so the platform is ready and our plugins are available.
-    // Here you can do any higher level native things you might need.
-    StatusBar.styleDefault();
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      StatusBar.styleDefault();
     });
-    }
+  }
 
   openPage(page) {
     // close the menu when clicking a link from the menu

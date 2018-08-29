@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
-
-import { BrowserModule } from '@angular/platform-browser';
 import { MyApp } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganisationsPage } from '../pages/organisations/organisations';
-
+import {UserDetailsPage } from '../pages/user-details/UserDetailsPage';
 import { GithubUsers } from '../providers/github-users/github-users';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-// import {UserDetailsPage} from "../pages/user-details/user-details";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,7 +16,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     UsersPage,
     ReposPage,
     OrganisationsPage,
-    // UserDetailsPage
+    UserDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -31,8 +29,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     UsersPage,
     ReposPage,
     OrganisationsPage,
-    // UserDetailsPage
+    UserDetailsPage
   ],
-  providers: [GithubUsers] // Add GithubUsers provider
+  providers: [GithubUsers]
 })
 export class AppModule {}
